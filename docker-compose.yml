@@ -11,3 +11,6 @@ services:
     tty: true
   postgres:
     image: "postgres:9.6.3"
+    environment:
+      - POSTGRES_USER=busfor
+      - POSTGRES_PASSWORD=busfor
