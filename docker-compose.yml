@@ -1,0 +1,13 @@
+version: '3'
+services:
+  rails:
+    build: .
+    ports:
+     - "3000:3000"
+    volumes:
+     - .:/rails
+    command: bash -l
+    stdin_open: true
+    tty: true
+  postgres:
+    image: "postgres:9.6.3"
