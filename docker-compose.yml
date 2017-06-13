@@ -6,7 +6,6 @@ services:
      - "3000:3000"
     volumes:
      - .:/rails
-    command: bash -l
     stdin_open: true
     tty: true
   postgres:
