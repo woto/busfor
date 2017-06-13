@@ -5,7 +5,7 @@ class StationsController < ApplicationController
   # GET /stations
   # GET /stations.json
   def index
-    @stations = Station.all
+    @stations = Station.includes(:city)
   end
 
   # GET /stations/1
