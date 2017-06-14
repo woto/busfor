@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Routes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>City start</th>
+      <th>Station start</th>
+      <th>Date start</th>
+      <th>City end</th>
+      <th>Station end</th>
+      <th>Date end</th>
+      <th>Carrier</th>
+      <th>Cost</th>
+      <th>Currency</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @routes.each do |route| %>
+      <tr>
+        <td><%= route.city_start %></td>
+        <td><%= route.station_start %></td>
+        <td><%= route.date_start %></td>
+        <td><%= route.city_end %></td>
+        <td><%= route.station_end %></td>
+        <td><%= route.date_end %></td>
+        <td><%= route.carrier %></td>
+        <td><%= route.cost %></td>
+        <td><%= route.currency %></td>
+        <td><%= link_to 'Show', route %></td>
+        <td><%= link_to 'Edit', edit_route_path(route) %></td>
+        <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Route', new_route_path %>

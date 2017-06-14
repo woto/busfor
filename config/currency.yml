@@ -1,0 +1,13 @@
+default: &default
+  rub: 0
+  eur: 1
+  usd: 2
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

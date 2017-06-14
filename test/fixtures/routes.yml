@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city_start: one
+  station_start: one
+  date_start: 2017-06-13 23:30:56
+  city_end: one
+  station_end: one
+  date_end: 2017-06-13 23:30:56
+  carrier: one
+  cost: 
+  currency: 1
+
+two:
+  city_start: two
+  station_start: two
+  date_start: 2017-06-13 23:30:56
+  city_end: two
+  station_end: two
+  date_end: 2017-06-13 23:30:56
+  carrier: two
+  cost: 
+  currency: 1

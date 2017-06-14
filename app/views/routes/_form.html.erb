@@ -1,0 +1,62 @@
+<%= form_with(model: route, local: true) do |form| %>
+  <% if route.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
+
+      <ul>
+      <% route.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :city_start_id %>
+    <%= form.text_field :city_start_id, id: :route_city_start_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :station_start_id %>
+    <%= form.text_field :station_start_id, id: :route_station_start_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_start %>
+    <%= form.datetime_select :date_start, id: :route_date_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city_end_id %>
+    <%= form.text_field :city_end_id, id: :route_city_end_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :station_end_id %>
+    <%= form.text_field :station_end_id, id: :route_station_end_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_end %>
+    <%= form.datetime_select :date_end, id: :route_date_end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :carrier_id %>
+    <%= form.text_field :carrier_id, id: :route_carrier_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.text_field :cost, id: :route_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency %>
+    <%= form.number_field :currency, id: :route_currency %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
