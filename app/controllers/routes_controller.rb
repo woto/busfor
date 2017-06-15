@@ -4,7 +4,7 @@ class RoutesController < ApplicationController
   # GET /routes
   # GET /routes.json
   def index
-    @routes = Route.includes(:city_start, :city_end, :station_start, :station_end, :carrier)
+    @routes = Route.includes(:city_start, :city_end, :station_start, :station_end, :carrier).page params[:page]
   end
 
   # GET /routes/1
