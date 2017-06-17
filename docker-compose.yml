@@ -2,12 +2,18 @@ version: '3'
 services:
   rails:
     build: .
+    image: woto
     ports:
-     - "3000:3000"
+      - "3000:3000"
     volumes:
-     - .:/rails
+      - .:/rails
     stdin_open: true
     tty: true
+  webpacker:
+    image: woto
+    command: ./bin/webpack-dev-server
+    ports:
+      - "8080:8080"
   postgres:
     image: "postgres:9.6.3"
     environment:

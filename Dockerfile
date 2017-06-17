@@ -6,7 +6,7 @@ ADD Gemfile /rails/Gemfile
 ADD Gemfile.lock /rails/Gemfile.lock
 RUN bundle install
 ADD . /rails
-EXPOSE 3000
+EXPOSE 3000 8080
 
 # nodejs
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
