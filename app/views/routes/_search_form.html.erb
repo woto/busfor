@@ -1,0 +1,29 @@
+<%= search_form_for @q, remote: true, class: 'mb-4' do |f| %>
+
+  <div class="form-group row">
+    <%= f.label :city_start_id_eq, class: "col-2 col-form-label" %>
+    <%= f.select :city_start_id_eq, [], {}, class: "form-control col-4" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :station_start_id_eq, class: "col-2 col-form-label" %>
+    <%= f.select :station_start_id_eq, [], {}, class: "form-control col-4" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :city_end_id_eq, class: "col-2 col-form-label" %>
+    <%= f.select :city_end_id_eq, [], {}, class: "form-control col-4" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :station_end_id_eq, class: "col-2 col-form-label" %>
+    <%= f.select :station_end_id_eq, [], {}, class: "form-control col-4" %>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :carrier_id_eq, class: "col-2 col-form-label" %>
+    <%= f.select :carrier_id_eq, [], {}, class: "form-control col-4" %>
+  </div>
+
+  <%= f.submit nil, class: "btn btn-primary" %>
+<% end %>

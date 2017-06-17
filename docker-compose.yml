@@ -12,6 +12,8 @@ services:
   webpacker:
     image: woto
     command: ./bin/webpack-dev-server
+    volumes:
+      - .:/rails
     ports:
       - "8080:8080"
   postgres:

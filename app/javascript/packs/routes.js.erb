@@ -1,0 +1,57 @@
+
+  function formatRepoSelection (row) {
+    return row.name
+  }
+
+  function formatRepo (row) {
+    if (row.loading) return row.text;
+    return row.name;
+  }
+
+  const selects = [
+    { model: "cities", name: "city_start" },
+    { model: "stations", name: "station_start" },
+    { model: "cities", name: "city_end" },
+    { model: "stations", name: "station_end" },
+    { model: "carriers", name: "carrier" }];
+
+  document.addEventListener("turbolinks:before-cache", function() {
+    for (let select of selects) {
+      $(`#q_${select.name}_id_eq`).select2('destroy');
+    }
+  });
+
+  document.addEventListener("turbolinks:load", function() {
+    for (let select of selects) {
+      $(`#q_${select.name}_id_eq`).select2({
+        ajax: {
+          url: `/${select.model}/search/`,
+          dataType: 'json',
+          delay: 250,
+          data: function (params) {
+            return {
+              q: params.term, // search term
+              page: params.page
+            };
+          },
+          processResults: function (data, params) {
+            params.page = params.page || 1;
+
+            return {
+              results: data,
+              pagination: {
+                more: data.length >= <%= SearchableByNameConcern::PER_PAGE %>
+              }
+            };
+          },
+          cache: true
+        },
+        minimumInputLength: 1,
+        templateResult: formatRepo, // omitted for brevity, see the source of this page
+        templateSelection: formatRepoSelection, // omitted for brevity, see the source of this page
+        theme: "bootstrap",
+        placeholder: "",
+        allowClear: true
+      });
+    }
+  });

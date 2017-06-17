@@ -1,4 +1,5 @@
 class StationsController < ApplicationController
+  include SearchableByNameConcern
   before_action :set_station, only: [:show, :edit, :update, :destroy]
   layout 'admin'
 

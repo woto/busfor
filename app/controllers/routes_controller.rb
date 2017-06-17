@@ -1,10 +1,19 @@
 class RoutesController < ApplicationController
   before_action :set_route, only: [:show, :edit, :update, :destroy]
+  layout 'admin'
 
   # GET /routes
   # GET /routes.json
   def index
-    @routes = Route.includes(:city_start, :city_end, :station_start, :station_end, :carrier).page params[:page]
+    select_names = [:city_start, :city_end, :station_start, :station_end, :carrier]
+    @q = Route.ransack(params[:q])
+    @routes = @q.result.includes(select_names).page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   # GET /routes/1

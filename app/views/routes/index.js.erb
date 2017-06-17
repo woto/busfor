@@ -1,0 +1,4 @@
+var wrapper = document.createElement('div');
+wrapper.innerHTML = '<%= j(render template: 'routes/index.html.erb') %>';
+document.querySelector('#dynamic').outerHTML = wrapper.querySelector('#dynamic').outerHTML;
+window.scrollTo(0, 0);

@@ -1,4 +1,5 @@
 Dir[File.join(Rails.root, "db", "search_results", "*.yml")].each do |file_name|
+  puts "Seeding #{file_name}"
   YAML.load_file(file_name).each do |yml|
     city_start = City.where(name: yml[:start_city_name]).first_or_create
     city_end = City.where(name: yml[:end_city_name]).first_or_create

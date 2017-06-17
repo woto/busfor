@@ -7,4 +7,17 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+import jQuery from 'jquery/src/jquery.js';
+window.$ = window.jQuery = $;
+
+import 'tether/dist/css/tether.css';
+import 'tether/dist/js/tether.js';
+
+import 'bootstrap/scss/bootstrap.scss';
+import 'bootstrap/dist/js/bootstrap.js';
+
+import 'select2/dist/css/select2.css';
+import 'select2-bootstrap-theme/dist/select2-bootstrap.css'
+import 'select2/dist/js/select2.js';
+
+import './routes.js'

@@ -1,4 +1,5 @@
 class CitiesController < ApplicationController
+  include SearchableByNameConcern
   before_action :set_city, only: [:show, :edit, :update, :destroy]
   layout 'admin'
 

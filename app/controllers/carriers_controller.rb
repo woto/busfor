@@ -1,4 +1,5 @@
 class CarriersController < ApplicationController
+  include SearchableByNameConcern
   before_action :set_carrier, only: [:show, :edit, :update, :destroy]
   layout 'admin'
 
