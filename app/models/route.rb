@@ -7,4 +7,5 @@ class Route < ApplicationRecord
   enum currency: Rails.configuration.currency
 
   validates :currency, :inclusion => {in: Rails.configuration.currency}
+  validates :cost, numericality: true
 end

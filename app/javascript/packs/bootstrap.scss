@@ -1,0 +1,9 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+html {
+  font-size: 14px;
+}
+
+.form-actions {
+  @extend .mb-3;
+}

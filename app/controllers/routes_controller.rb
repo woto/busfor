@@ -13,7 +13,6 @@ class RoutesController < ApplicationController
       format.html
       format.js
     end
-
   end
 
   # GET /routes/1
