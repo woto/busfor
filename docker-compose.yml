@@ -9,6 +9,8 @@ services:
       - .:/rails
     stdin_open: true
     tty: true
+    depends_on:
+      - "postgres"
   webpacker:
     image: woto
     command: ./bin/webpack-dev-server
@@ -16,6 +18,9 @@ services:
       - .:/rails
     ports:
       - "8080:8080"
+    depends_on:
+      - "postgres"
+      - "rails"
   postgres:
     image: "postgres:9.6.3"
     environment:
