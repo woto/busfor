@@ -11,9 +11,10 @@ services:
     tty: true
     depends_on:
       - "postgres"
+    command: ./docker-entrypoint-rails.sh
   webpacker:
     image: woto
-    command: ./bin/webpack-dev-server
+    command: ./docker-entrypoint-webpacker.sh
     volumes:
       - .:/rails
     ports:
