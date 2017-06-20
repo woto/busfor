@@ -8,4 +8,6 @@ class Route < ApplicationRecord
 
   validates :currency, :inclusion => {in: Rails.configuration.currency}
   validates :cost, numericality: true
+
+  attr_accessor :weeks_days
 end

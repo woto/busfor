@@ -1,2 +1,54 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<%= link_to 'Admin', cities_path, class: "float-right btn btn-primary mt-2 mb-2" %>
+<h1>Расписание</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Станция отправления</th>
+      <th>Станция прибытия</th>
+      <th>График движения</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @result.each do |row| %>
+      <tr>
+        <td><%= row.city_start_name %> (<%= row.city_start_id %>)</td>
+        <td><%= row.city_end_name %> (<%= row.city_end_id %>)</td>
+        <td>
+          <% if row.weeks_days.values.all? %>
+            Ежедневно<br>
+          <% else %>
+            <% row.weeks_days.each do |wday, every_week| %>
+              <% if every_week %>
+                Каждый <%= Date::DAYNAMES[wday] %><br>
+              <% else %>
+                Эпизодами по <%= Date::DAYNAMES[wday] %><br>
+              <% end %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if false %>
+  <div class="card mt-5">
+    <div class="card-header">
+      Отладочная информация
+    </div>
+    <div class="card-block">
+      <p class="text-primary">Результат запроса</p>
+      <% @result.each do |row| %>
+        <%= row.city_start_name %> - <%= row.city_end_name %><br>
+        <%= row.weeks_and_days.sort_by { |el| [el.second, el.first]}.map { |week_num, week_day| [week_num.to_i, week_day.to_i]} %><br><br>
+      <% end %>
+      <p class="text-primary">Интервал дат</p>
+      <%= debug @range %>
+      <p class="text-primary">Понедельников, вторников и т.д. в интервале дат (0 - воскресенье)</p>
+      <%= debug @weekdays_in_range %>
+    </div>
+  </div>
+<% end %>
